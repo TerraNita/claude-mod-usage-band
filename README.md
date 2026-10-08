@@ -32,10 +32,12 @@ Skills  1.gen-doc×3   2.plugin-authoring×2   3.simplify×1
 
 ### 方法 A: GitHub リポジトリから（推奨）
 
-このフォルダをそのまま GitHub リポジトリにして公開（社内 private リポジトリでも可）している場合、ターミナルで Claude Code を起動し、プロンプトに次を入力します。
+リポジトリ: https://github.com/TerraNita/claude-mod-usage-band
+
+ターミナルで Claude Code を起動し、プロンプトに次を入力します。
 
 ```
-/plugin install usage-band --marketplace <owner>/<repo>
+/plugin install usage-band --marketplace TerraNita/claude-mod-usage-band
 ```
 
 1. `Add marketplace?` と聞かれたら `y`
@@ -66,7 +68,7 @@ Skills  1.gen-doc×3   2.plugin-authoring×2   3.simplify×1
 ## 更新・アンインストール
 
 - **更新（方法 B）**: フォルダ内のファイルを差し替えてから、起動中のセッションで `/reload-plugins`
-- **更新（方法 A）**: `claude plugin update usage-band@<marketplace名>` の後、`/reload-plugins`
+- **更新（方法 A）**: `claude plugin update usage-band@usage-band-mods` の後、`/reload-plugins`
 - **アンインストール**:
 
   ```
@@ -78,15 +80,17 @@ Skills  1.gen-doc×3   2.plugin-authoring×2   3.simplify×1
 
 | ファイル | 役割 |
 | --- | --- |
-| `hooks/register.tsx` | 本体（表示・使用量取得・スキル履歴の記録） |
-| `hooks/register.test.ts` | テスト |
-| `types/index.d.ts` | 状態（`$.state`）の型定義 |
-| `.claude-plugin/plugin.json` | プラグイン定義 |
-| `.claude-plugin/marketplace.json` | マーケットプレイス定義（このフォルダ自体をインストール元にするためのもの） |
+| `.claude-plugin/marketplace.json` | マーケットプレイス定義（GitHub リポジトリからのインストール用。`usage-band/` を参照） |
+| `usage-band/hooks/register.tsx` | 本体（表示・使用量取得・スキル履歴の記録） |
+| `usage-band/hooks/register.test.ts` | テスト |
+| `usage-band/types/index.d.ts` | 状態（`$.state`）の型定義 |
+| `usage-band/.claude-plugin/plugin.json` | プラグイン定義 |
+| `usage-band/.claude-plugin/marketplace.json` | マーケットプレイス定義（方法 B でフォルダ自体をインストール元にするためのもの） |
 
-変更後の確認:
+変更後の確認（リポジトリ直下で実行）:
 
 ```
-claude plugin validate <このフォルダ>
-claude plugin test <このフォルダ>
+claude plugin validate .
+claude plugin validate usage-band
+claude plugin test usage-band
 ```
