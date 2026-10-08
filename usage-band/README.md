@@ -32,10 +32,12 @@ Skills  1.gen-doc×3   2.plugin-authoring×2   3.simplify×1
 
 ### 方法 A: GitHub リポジトリから（推奨）
 
-このフォルダをそのまま GitHub リポジトリにして公開（社内 private リポジトリでも可）している場合、ターミナルで Claude Code を起動し、プロンプトに次を入力します。
+リポジトリ: https://github.com/TerraNita/claude-mod-usage-band
+
+ターミナルで Claude Code を起動し、プロンプトに次を入力します。
 
 ```
-/plugin install usage-band --marketplace <owner>/<repo>
+/plugin install usage-band --marketplace TerraNita/claude-mod-usage-band
 ```
 
 1. `Add marketplace?` と聞かれたら `y`
@@ -66,7 +68,7 @@ Skills  1.gen-doc×3   2.plugin-authoring×2   3.simplify×1
 ## 更新・アンインストール
 
 - **更新（方法 B）**: フォルダ内のファイルを差し替えてから、起動中のセッションで `/reload-plugins`
-- **更新（方法 A）**: `claude plugin update usage-band@<marketplace名>` の後、`/reload-plugins`
+- **更新（方法 A）**: `claude plugin update usage-band@usage-band-mods` の後、`/reload-plugins`
 - **アンインストール**:
 
   ```
