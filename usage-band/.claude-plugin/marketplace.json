@@ -1,0 +1,5 @@
+{
+  "name": "usage-band-mods",
+  "owner": { "name": "TerraNita" },
+  "plugins": [{ "name": "usage-band", "source": "./" }]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "usage-band",
+  "version": "0.1.0",
+  "description": "Shows the model, context / rate-limit / cost usage bars and a skill ranking above the prompt",
+  "author": { "name": "TerraNita" },
+  "types": "./types/index.d.ts"
+}
